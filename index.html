@@ -2,14 +2,14 @@
 <html>
 <body>
 <script>
-var fs = require(['fs']);
+//var fs = require(['fs']);
 var filenum = 1;
 var data = {};
 var time = new Date();
 function nextImage() {
 	var json = JSON.stringify(data);
-	fs.writeFile(time + '.json',json, 'utf8', callback);
-	var filename = "../faces/" + filenum + ".jpg";
+	//fs.writeFile(time + '.json',json, 'utf8', callback);
+	var filename = "faces/" + filenum + ".jpg";
 	filenum++;
     document.getElementById("image").src = filename;
     console.log(data);
@@ -35,7 +35,7 @@ function nai() {
 <h2>Image Classifier</h2>
 
 <p id="demo">JavaScript can change HTML content.</p>
-<img id="image" src="../faces/0.jpg">
+<img id="image" src="faces/0.jpg">
 </br>
 
 <button type="button" onclick="happy()">Happy</button>
