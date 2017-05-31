@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+var fs = require(['fs']);
+var filenum = 1;
+var data = {};
+var time = new Date();
+function nextImage() {
+	var json = JSON.stringify(data);
+	fs.writeFile(time + '.json',json, 'utf8', callback);
+	var filename = "../faces/" + filenum + ".jpg";
+	filenum++;
+    document.getElementById("image").src = filename;
+    console.log(data);
+}
+function happy() {
+	data[filenum] = 0;
+	nextImage();
+}
+function sad() {
+	data[filenum] = 1;
+	nextImage();
+}
+function neutral() {
+	data[filenum] = 2;
+	nextImage();
+}
+function nai() {
+	data[filenum] = 10;
+	nextImage();
+}
+</script>
+
+<h2>Image Classifier</h2>
+
+<p id="demo">JavaScript can change HTML content.</p>
+<img id="image" src="../faces/0.jpg">
+</br>
+
+<button type="button" onclick="happy()">Happy</button>
+<button type="button" onclick="sad()">Sad</button>
+<button type="button" onclick="neutral()">Neutral</button>
+<button type="button" onclick="nai()">Not an Image</button>
+
+</body>
+</html>
