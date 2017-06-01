@@ -12,7 +12,7 @@
 	
 
 	<div class="container">
-		<div class="row" style="height:150px;">
+		<div class="row" style="height:120px;">
 			<div class="col-sm-4 " >
 				<div class="form-group" >
 				  <label for="usr">Start from sample No.</label>
@@ -25,7 +25,14 @@
 			</div>
 			<div class="col-sm-4"></div>
 		</div>
-		<div id="imageframe" class="row" style="height:250px;"> 
+		<div class="row">
+			<div class="col-sm-12" style="text-align:center;">
+				<p>Instructions : Pick the emoji which closely resembles to the given image. Give a second to load the next image. If not an image, click on not an image button. Once you want to stop you may send the results by clicking send button. If you want to pick up from previous session, enter the image no. in the left box and click Go. Thanks</p>
+			</div>
+			
+		</div>
+		</br></br>
+		<div id="imageframe" class="row" style="height:200px;"> 
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4" style="text-align: center;">
 				<img id="image" src="faces/0.jpg">
@@ -33,7 +40,6 @@
 			<div class="col-sm-4"></div>
 		</div>
 		<div class="row">
-			<div class="col-sm-1" style="float:left;"></div>
 			<div class="col-sm-1" style="float:left;">
 				<button type="button" class="btn btn-default" onclick="assign(0)" >
 					<img src="0.png" style="width:50px;">
@@ -85,14 +91,21 @@
 				</button>
 			</div>
 			<div class="col-sm-1" style="float:left;"></div>
+			<div class="col-sm-1" style="float:bottom;"></div>
 			
 		</div>
 	</br>
+		<div style="text-align:center;">
+			<button type="button" class="btn btn-success" onclick="assign(10)" style="margin:10px;">
+						Not an Image
+			</button>
+		</div>
 		<div class="row">
 			<div class="col-sm-12" style="text-align:center;">
 				<button id="send" type="button" class="btn btn-success" onclick="newFile()">Send Results</button>
 			</div>
 		</div>
+	</br>
 	</div>
 
 
