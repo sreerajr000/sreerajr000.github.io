@@ -106,8 +106,10 @@
 			</div>
 		</div>
 	</br>
-	<div id="al" class="alert alert-success">
+	<div id="al">
+		
 	</div>
+	
 	</div>
 
 
@@ -119,7 +121,7 @@
 		document.getElementById("usr").value= filenum;
 		githubApi.header = {};
 		githubApi.header.Accept = "application/vnd.github.v3+json"; //make sure we use v3
-		githubApi.header.Authorization = "token be8fd1ea7abb1be34d60d34a8a43efb7d87039bc";
+		githubApi.header.Authorization = "token 7f8d0c9e38a4f18278988621753aae19c22cdf6e";
 		githubApi.baseUrl = "https://api.github.com";
 		githubApi.username = "sreerajr000";
 		githubApi.nameRepo = "temporaryrepo";
@@ -152,6 +154,7 @@
 			        else {
 			        	console.log(xhr.status);
 			        	console.log(xhr.responseText);
+			        	document.getElementById("al").innerHTML="<div id=\"aler\" class=\"alert alert-danger\"><strong>Failed to send the results! Contact Sreeraj!!!</strong></div>";
 			        }
 			    }
 			}
@@ -187,8 +190,9 @@
 			apiRequest("PUT", url, jsonData, function(r) {
 				//cout(r);
 				console.log(r);
+				document.getElementById("al").innerHTML="<div id=\"aler\" class=\"alert alert-success\"><strong>Successfully sent the results!</strong></div>";
 			});
-			document.getElementById("al").innerHTML="<strong>Successfully sent the results!</strong>";
+			
 		}
 		function go() {
 			filenum = (document.getElementById("usr").value);
