@@ -175,6 +175,7 @@
 			a.download = "backup.json";
 			a.href = url;
 			a.textContent = "Download backup.json";
+			document.getElementById('al').innerHTML = '';
 			document.getElementById('al').appendChild(a);
 
 			githubApi.newFile = true;
