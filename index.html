@@ -120,11 +120,9 @@
 		var githubApi = {};
 		document.getElementById("usr").value= filenum;
 
-
-
 		githubApi.header = {};
 		githubApi.header.Accept = "application/vnd.github.v3+json"; //make sure we use v3
-		githubApi.header.Authorization = "token 382189cf6a6b372c818853e5a827b488ef9a4adb";
+		githubApi.header.Authorization = "token b46ffd1645a8d1ce57092ba3a7864ff3792dc743";
 		githubApi.baseUrl = "https://api.github.com";
 		githubApi.username = "sreerajr000";
 		githubApi.nameRepo = "temporaryrepo";
@@ -169,15 +167,25 @@
 		}
 		
 		function newFile() {
-			
+			var json = JSON.stringify(data);
+			var blob = new Blob([json], {type: "application/json"});
+			var url = URL.createObjectURL(blob);
+
+			var a = document.createElement('a');
+			a.download = "backup.json";
+			a.href = url;
+			a.textContent = "Download backup.json";
+			document.getElementById('al').appendChild(a);
+
 			githubApi.newFile = true;
 			githubApi.path = filename;
 			console.log(filename);
 			//document.getElementById("content").value = ""; //clear
 			//document.getElementById("pathTitle").value = githubApi.path;
-			commitAndPush();
+			//commitAndPush();
 		}
 		function commitAndPush() {
+
 			var jsonData = new Object();
 			jsonData.message = filename;
 			//jsonData.content = btoa(document.getElementById("content").value); //encode64
