@@ -9,11 +9,99 @@
 	<title>Image Classifier</title>
 	</head>
 <body>
+	
+
+	<div class="container-fluid">
+		<div class="row" style="height:150px;">
+			<div class="col-sm-4 " >
+				<div class="form-group" >
+				  <label for="usr">Start from sample No.</label>
+				  <input type="text" class="form-control" id="usr" style="width:120px;">
+				  <button type="button" class="btn btn-success" style="width:120px;margin-top:5px;" onclick="go()">Go</button>
+				</div>
+			</div>
+			<div class="col-sm-4" style="text-align: center;">
+				<h2>Image Classifier</h2>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+		<div id="imageframe" class="row" style="height:250px;"> 
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4" style="text-align: center;">
+				<img id="image" src="faces/0.jpg">
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(0)" style="width:100px;">
+					<img src="0.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(1)" style="width:100px;">
+					<img src="1.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(2)" style="width:100px;">
+					<img src="2.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(3)" style="width:100px;">
+					<img src="3.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(4)" style="width:100px;">
+					<img src="4.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(5)" style="width:100px;">
+					<img src="5.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(6)" style="width:100px;">
+					<img src="6.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(7)" style="width:100px;">
+					<img src="7.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(8)" style="width:100px;">
+					<img src="8.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1">
+				<button type="button" class="btn btn-default" onclick="assign(9)" style="width:100px;">
+					<img src="9.png" style="width:50px;">
+				</button>
+			</div>
+			<div class="col-sm-1"></div>
+			
+		</div>
+	</br>
+		<div class="row">
+			<div class="col-sm-12" style="text-align:center;">
+				<button id="send" type="button" class="btn btn-success" onclick="newFile()">Send Results</button>
+			</div>
+		</div>
+	</div>
+
+
 	<script type="text/javascript">
 		var filenum = 1;
 		var data = {};
 		var filename = new Date();
 		var githubApi = {};
+		document.getElementById("usr").value= filenum;
 		githubApi.header = {};
 		githubApi.header.Accept = "application/vnd.github.v3+json"; //make sure we use v3
 		githubApi.header.Authorization = "token be8fd1ea7abb1be34d60d34a8a43efb7d87039bc";
@@ -27,26 +115,16 @@
 			var json = JSON.stringify(data);
 			//fs.writeFile(time + '.json',json, 'utf8', callback);
 			var filename = "faces/" + filenum + ".jpg";
-			filenum++;
 		    document.getElementById("image").src = filename;
+		    document.getElementById("usr").value= filenum;
 		    console.log(data);
+		    filenum++;
 		}
-		function happy() {
-			data[filenum] = 0;
+		function assign(val) {
+			data[filenum] = val;
 			nextImage();
 		}
-		function sad() {
-			data[filenum] = 1;
-			nextImage();
-		}
-		function neutral() {
-			data[filenum] = 2;
-			nextImage();
-		}
-		function nai() {
-			data[filenum] = 10;
-			nextImage();
-		}
+
 		function apiRequest(method, url, jsonData, callback) {
 			//load the json file
 			var xhr = new XMLHttpRequest();
@@ -96,57 +174,11 @@
 				console.log(r);
 			});
 		}
+		function go() {
+			filenum = (document.getElementById("usr").value);
+			nextImage();
+		}
 	</script>
 
-
-	<div class="container-fluid">
-		<div class="row" style="height:150px;">
-			<div class="col-sm-4">
-				<div class="form-group">
-				  <label for="usr">Start from sample No.</label>
-				  <input type="text" class="form-control" id="usr" style="width:120px;">
-				</div>
-			</div>
-			<div class="col-sm-4" style="text-align: center;">
-				<h2>Image Classifier</h2>
-			</div>
-			<div class="col-sm-4"></div>
-		</div>
-		<div id="imageframe" class="row" style="height:300px;"> 
-			<div class="col-sm-4"></div>
-			<div class="col-sm-4" style="text-align: center;">
-				<img id="image" src="faces/0.jpg">
-			</div>
-			<div class="col-sm-4"></div>
-		</div>
-		<div class="row">
-			<div class="col-sm-1">
-				<button type="button" class="btn btn-success" onclick="happy()">Happy</button>
-			</div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-1">
-				<button type="button" class="btn btn-success" onclick="sad()">Sad</button>
-			</div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-1">
-				<button type="button" class="btn btn-success" onclick="neutral()">Neutral</button>
-			</div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-1"></div>
-			<div class="col-sm-1">
-				<button type="button" class="btn btn-success" onclick="nai()">Not an Image</button>
-			</div>
-			
-		</div>
-		<div class="row">
-			<div class="col-sm-12" style="text-align:center;">
-				<button id="send" type="button" class="btn btn-success" onclick="newFile()">Send Results</button>
-			</div>
-		</div>
-	</div>
 </body>
 </html>
