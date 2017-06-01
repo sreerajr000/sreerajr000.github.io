@@ -88,7 +88,7 @@
 			if(!githubApi.newFile) {
 				jsonData.sha = githubApi.sha;
 			}
-			var url = "https://api.github.com/repos/sreerajr000/sreerajr000.github.io/contents/"+githubApi.path;
+			var url = "https://api.github.com/repos/sreerajr000/temporaryrepo/contents/"+githubApi.path;
 			jsonData = JSON.stringify(jsonData); //api expects json as string
 			console.log(jsonData);
 			apiRequest("PUT", url, jsonData, function(r) {
