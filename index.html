@@ -1,216 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>Image Classifier</title>
-	</head>
+  <title>Sreeraj R - My Github Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 <body>
-	
-
-	<div class="container">
-		<div class="row" style="height:145px;">
-			<div class="col-sm-4 " >
-				<div class="form-group" >
-				  <label for="usr">Start from sample No.</label>
-				  <input type="text" class="form-control" id="usr" style="width:120px;">
-				  <button type="button" class="btn btn-success" style="width:120px;margin-top:5px;" onclick="go()">Go</button>
-				</div>
-			</div>
-			<div class="col-sm-4" style="text-align: center;">
-				<h2>Image Classifier</h2>
-			</div>
-			<div class="col-sm-4"></div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12" style="text-align:center;">
-				<p>Instructions : Pick the emoji which closely resembles to the given image. Give a second to load the next image. If not an image, click on not an image button. Once you want to stop you may send the results by clicking send button. If you want to pick up from previous session, enter the image no. in the left box and click Go. Thanks</p>
-			</div>
-			
-		</div>
-		</br></br>
-		<div id="imageframe" class="row" style="height:200px;"> 
-			<div class="col-sm-4"></div>
-			<div class="col-sm-4" style="text-align: center;">
-				<img id="image" src="faces/0.jpg">
-			</div>
-			<div class="col-sm-4"></div>
-		</div>
-		<div class="row">
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(0)" >
-					<img src="0.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(1)" >
-					<img src="1.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(2)" >
-					<img src="2.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(3)" >
-					<img src="3.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(4)" >
-					<img src="4.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(5)" >
-					<img src="5.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(6)" >
-					<img src="6.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(7)" >
-					<img src="7.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(8)" >
-					<img src="8.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;">
-				<button type="button" class="btn btn-default" onclick="assign(9)" >
-					<img src="9.png" style="width:50px;">
-				</button>
-			</div>
-			<div class="col-sm-1" style="float:left;"></div>
-			<div class="col-sm-1" style="float:bottom;"></div>
-			
-		</div>
-	</br>
-		<div style="text-align:center;">
-			<button type="button" class="btn btn-success" onclick="assign(10)" style="margin:10px;">
-						Not an Image
-			</button>
-		</div>
-		<div class="row">
-			<div class="col-sm-12" style="text-align:center;">
-				<button id="send" type="button" class="btn btn-success" onclick="newFile()">Send Results</button>
-			</div>
-		</div>
-	</br>
-	<div id="al">
-		
-	</div>
-	
-	</div>
 
 
-	<script type="text/javascript">
-		var filenum = 1;
-		var data = {};
-		var filename = new Date();
-		var githubApi = {};
-		document.getElementById("usr").value= filenum;
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#band">BAND</a></li>
+        <li><a href="#tour">TOUR</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Merchandise</a></li>
+            <li><a href="#">Extras</a></li>
+            <li><a href="#">Media</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-		githubApi.header = {};
-		githubApi.header.Accept = "application/vnd.github.v3+json"; //make sure we use v3
-		githubApi.header.Authorization = "token b46ffd1645a8d1ce57092ba3a7864ff3792dc743";
-		githubApi.baseUrl = "https://api.github.com";
-		githubApi.username = "sreerajr000";
-		githubApi.nameRepo = "temporaryrepo";
-		githubApi.sha = "";
-		githubApi.path = "";
-		githubApi.newFile = false;
-		function nextImage() {
-			var json = JSON.stringify(data);
-			//fs.writeFile(time + '.json',json, 'utf8', callback);
-			var filename = "faces/" + filenum + ".jpg";
-		    document.getElementById("image").src = filename;
-		    document.getElementById("usr").value= filenum;
-		    console.log(data);
-		    filenum++;
-		}
-		function assign(val) {
-			data[filenum] = val;
-			nextImage();
-		}
 
-		function apiRequest(method, url, jsonData, callback) {
-			//load the json file
-			var xhr = new XMLHttpRequest();
-			
-			xhr.onreadystatechange = function() {
-			    if (xhr.readyState == 4 ){
-			    	if(xhr.status == 200 || xhr.status == 201) {
-			        	callback(xhr.responseText);
-			        }
-			        else {
-			        	console.log(xhr.status);
-			        	console.log(xhr.responseText);
-			        	document.getElementById("al").innerHTML="<div id=\"aler\" class=\"alert alert-danger\"><strong>Failed to send the results! Contact Sreeraj!!!</strong></div>";
-			        }
-			    }
-			}
-			xhr.open(method, url, true);
-			for(var key in githubApi.header) {
-				xhr.setRequestHeader(key, githubApi.header[key]);
-			}
-			xhr.send(jsonData);
-		}
-		
-		function newFile() {
-			var json = JSON.stringify(data);
-			var blob = new Blob([json], {type: "application/json"});
-			var url = URL.createObjectURL(blob);
 
-			var a = document.createElement('a');
-			a.download = "backup.json";
-			a.href = url;
-			a.textContent = "Download backup.json";
-			document.getElementById('al').innerHTML = '';
-			document.getElementById('al').appendChild(a);
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+  </ol>
 
-			githubApi.newFile = true;
-			githubApi.path = filename;
-			console.log(filename);
-			//document.getElementById("content").value = ""; //clear
-			//document.getElementById("pathTitle").value = githubApi.path;
-			//commitAndPush();
-		}
-		function commitAndPush() {
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="images/ny.jpg" alt="Tetris">
+      <div class="carousel-caption">
+        <h3>Tetris</h3>
+        <p>Simple Tetris Game made using Javascript and p5.js</p>
+      </div>
+    </div>
 
-			var jsonData = new Object();
-			jsonData.message = filename;
-			//jsonData.content = btoa(document.getElementById("content").value); //encode64
-			jsonData.content = btoa(JSON.stringify(data));
-			jsonData.path = githubApi.path;
-			jsonData.branch = "master";
-			if(!githubApi.newFile) {
-				jsonData.sha = githubApi.sha;
-			}
-			var url = "https://api.github.com/repos/sreerajr000/temporaryrepo/contents/"+githubApi.path;
-			jsonData = JSON.stringify(jsonData); //api expects json as string
-			console.log(jsonData);
-			apiRequest("PUT", url, jsonData, function(r) {
-				//cout(r);
-				console.log(r);
-				document.getElementById("al").innerHTML="<div id=\"aler\" class=\"alert alert-success\"><strong>Successfully sent the results!</strong></div>";
-			});
-			
-		}
-		function go() {
-			filenum = (document.getElementById("usr").value);
-			nextImage();
-		}
-	</script>
+    <div class="item">
+      <img src="images/la.jpg" alt="Image Classifier">
+      <div class="carousel-caption">
+        <h3>Image Classifier</h3>
+        <p>Image Classifier for a machine learning project</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> 
+
+
+<div class="container text-center" style="padding: 80px 120px">
+  <h3>Sreeraj Ramachandran</h3>
+  <p><em>i need a tagline</em></p>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <p><strong>Name</strong></p><br>
+      <img src="bandmember.jpg" class="img-circle person" alt="Random Name">
+    </div>
+    <div class="col-sm-4">
+      <p><strong>Name</strong></p><br>
+      <img src="bandmember.jpg" class="img-circle person" alt="Random Name">
+    </div>
+    <div class="col-sm-4">
+      <p><strong>Name</strong></p><br>
+      <img src="bandmember.jpg" class="img-circle person" alt="Random Name">
+    </div>
+  </div>
+</div>
+
+
 
 </body>
 </html>
