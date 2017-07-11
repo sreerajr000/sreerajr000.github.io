@@ -97,3 +97,9 @@ h3, h4 {
 #logo {
     margin-left: 10px;    
 }
+
+
+#disqus_thread{
+    margin: auto;
+    width: 80%;
+}
