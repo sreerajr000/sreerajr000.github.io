@@ -1,8 +1,6 @@
 function setup() {
   var canv = createCanvas(windowWidth, windowHeight);
   canv.class("canvasbg");
-  console.log(windowHeight);
-  console.log(windowWidth);
   createCircle();
   //frameRate(10);
 }

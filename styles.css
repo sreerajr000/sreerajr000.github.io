@@ -25,6 +25,13 @@
     border-color: #f1f1f1;
 }
 
+
+h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;
+    font-size: 20px;
+    color: #111;
+}
  /* Add a dark background color with a little bit see-through */
 .navbar {
     margin-bottom: 0;
