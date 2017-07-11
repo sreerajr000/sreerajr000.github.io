@@ -56,6 +56,9 @@
     border-color: transparent;
 }
 
+.navbar-brand{
+    padding-top: 5px;
+}
 /* Dropdown */
 .open .dropdown-toggle {
     color: #fff ;
@@ -83,3 +86,7 @@
     z-index:-1;
 }
 
+
+#logo {
+    margin-left: 10px;    
+}
