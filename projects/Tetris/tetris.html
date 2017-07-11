@@ -9,7 +9,6 @@
   <script src="/libraries/p5.dom.js" type="text/javascript"></script>
   <script src="/libraries/p5.sound.js" type="text/javascript"></script>
 
-  <script src="sketch.js" type="text/javascript"></script>
   <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
   <script src="/js/bootstrap.js" type="text/javascript"></script>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -22,7 +21,6 @@
     }
     
     canvas {
-      vertical-align: top;
       display: block;
       margin: auto;
       border: 1px solid #000000;
@@ -40,9 +38,14 @@
     </script>
     <div id="header"></div>
 
+
 <div class="container text-center" style="padding: 30px 120px">
   <h1 style="text-align:center"><strong>Tetris</strong></h1>
   <div id="wellP" class="well">Player Score</div>
+  <div id="canvasdiv">
+    <script src="sketch.js" type="text/javascript"></script>
+  </div>
+  
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -62,7 +65,24 @@
 
     </div>
   </div>
+  <div id="controls">
+    <button type="button" class="btn btn-success" style="margin-bottom:5px;margin-top:5px;" onclick="keyPressedAlt(3)">
+      <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+      Rotate
+    </button>
+    <br>
+    <button type="button" class="btn btn-success" onclick="keyPressedAlt(0)">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
+      Left</button>
+    <button type="button" class="btn btn-success" onclick="keyPressedAlt(2)">
+      <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+      Down
+    </button>
+    <button type="button" class="btn btn-success" onclick="keyPressedAlt(1)">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      Right</button>
+  </div>
 </div>
-</body>
 
+</body>
 </html>

@@ -1,5 +1,6 @@
 function setup() {
-  createCanvas(240, 432);
+  var myCanvas = createCanvas(240, 432);
+  myCanvas.parent("canvasdiv")
   cW = width;
   cH = height;
   drawingContext.shadowBlur = 3;
@@ -17,6 +18,7 @@ function draw() {
   if (currentBlk.checkCollision()) {
     currentBlk.addtoFrame();
     currentBlk = new block();
+    speed = 1;
     if (currentBlk.checkCollision()) {
       noLoop();
       $('#myModal').modal();
@@ -95,6 +97,31 @@ function keyPressed() {
     speed = 10;
     draw();
   } else if (keyCode === UP_ARROW) {
+
+    currentBlk.rotateBlk();
+    if (currentBlk.checkCollision()) currentBlk.urotateBlk();
+    return false;
+  }
+}
+
+
+function keyPressedAlt(code) {
+  if (code === 0) {
+    currentBlk.x--;
+    //currentBlk.y--;
+    if (currentBlk.checkCollision()) currentBlk.x++;
+    else moveSide();
+
+  } else if (code === 1) {
+    currentBlk.x++;
+    //currentBlk.y--;
+    if (currentBlk.checkCollision()) currentBlk.x--;
+    else moveSide();
+
+  } else if (code === 2) {
+    speed = 10;
+    draw();
+  } else if (code === 3) {
 
     currentBlk.rotateBlk();
     if (currentBlk.checkCollision()) currentBlk.urotateBlk();
