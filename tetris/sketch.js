@@ -98,6 +98,7 @@ function keyPressed() {
 
     currentBlk.rotateBlk();
     if (currentBlk.checkCollision()) currentBlk.urotateBlk();
+    return false;
   }
 }
 
