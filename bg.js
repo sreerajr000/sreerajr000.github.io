@@ -1,6 +1,8 @@
 function setup() {
   var canv = createCanvas(windowWidth, windowHeight);
   canv.class("canvasbg");
+  console.log(windowHeight);
+  console.log(windowWidth);
   createCircle();
   //frameRate(10);
 }
@@ -27,7 +29,7 @@ var Circle = function() {
 
 function createCircle() {
   circles = [];
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 200*(windowHeight*windowWidth)/(670*1370); i++) {
     var angle = random(0, TWO_PI);
     circles.push(new Circle());
     circles[i].direction = [cos(angle), sin(angle)];
