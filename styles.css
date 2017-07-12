@@ -166,6 +166,6 @@ iframe{
     margin: auto;
     display: block;
     width: 80%;
-    height: 800px;
     margin-bottom: 50px;
+    border: 0;
 }
