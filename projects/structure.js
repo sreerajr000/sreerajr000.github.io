@@ -74,24 +74,6 @@ function populate() {
 }
 
 
-function loadFrame(id){
-	var myNode = document.getElementById("project_frame");
-	while (myNode.firstChild) {
-	    myNode.removeChild(myNode.firstChild);
-	}
-	var dFrame = document.createElement("IFRAME");
-  dFrame.onload = function(){
-    dFrame.height = 10 + dFrame.contentWindow.document.body.scrollHeight + "px";
-    document.addEventListener('keypress', function(e){
-      console.log(e);
-      var iframeEvent = new Event('iframe-keypress');
-      iframeEvent.keyCode = e.keyCode;
-     dFrame.contentDocument.body.dispatchEvent(iframeEvent);
-    });
-  };
-	dFrame.setAttribute("src", "/projects/" + structure[id].folder_name + "/" + structure[id].filename);
-	
-
-  myNode.appendChild(dFrame);
-  
+function loadFrame(id){	
+  window.location = "/projects/" + structure[id].folder_name + "/" + structure[id].filename;
 }
