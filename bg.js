@@ -3,6 +3,7 @@ function setup() {
   canv.class("canvasbg");
   createCircle();
   //frameRate(10);
+
 }
 
 function windowResized() {
