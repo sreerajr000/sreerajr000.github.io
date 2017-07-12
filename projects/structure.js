@@ -65,7 +65,22 @@ function populate() {
     dButton = document.createElement("BUTTON");
     dThumb.appendChild(dButton);
     dButton.appendChild(document.createTextNode(structure[i].name));
+    dButton.id = i;
+    //dButton.onclick = function() { loadFrame(structure[i]); };
+    $(dButton).on('click', function (e) { loadFrame(this.id); });
     dButton.className = "btn";
   }
+
+}
+
+
+function loadFrame(id){
+	var myNode = document.getElementById("project_frame");
+	while (myNode.firstChild) {
+	    myNode.removeChild(myNode.firstChild);
+	}
+	var dFrame = document.createElement("IFRAME");
+	dFrame.setAttribute("src", "/projects/" + structure[id].folder_name + "/" + structure[id].filename);
+	myNode.appendChild(dFrame);
 
 }
