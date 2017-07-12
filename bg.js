@@ -1,12 +1,12 @@
 function setup() {
-  var canv = createCanvas(windowWidth, windowHeight);
+  var canv = createCanvas(0.98*windowWidth, windowHeight);
   canv.class("canvasbg");
   createCircle();
   //frameRate(10);
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(0.98*windowWidth, windowHeight);
   createCircle();
 }
 
@@ -58,7 +58,7 @@ function draw() {
   for (var i = 0; i < tempcircles.length; i++) {
     for (var j = i + 1; j < tempcircles.length; j++) {
       if (dist(tempcircles[j].x, tempcircles[j].y, tempcircles[i].x, tempcircles[i].y) <= rad) {
-        stroke(0, min(tempcircles[i].op, tempcircles[j].op));
+        stroke(0, 0.8*min(tempcircles[i].op, tempcircles[j].op));
         line(tempcircles[i].x, tempcircles[i].y, tempcircles[j].x, tempcircles[j].y)
       }
     }
