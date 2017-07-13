@@ -96,6 +96,7 @@ function keyPressed() {
   } else if (keyCode === DOWN_ARROW) {
     speed = 10;
     draw();
+    return false;
   } else if (keyCode === UP_ARROW) {
 
     currentBlk.rotateBlk();

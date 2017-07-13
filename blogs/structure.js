@@ -5,7 +5,8 @@ var structure = [{
   "id": "img_classify",
   "folder_name": "Image Classifier",
   "filename": "faces.html",
-  "image" : "/images/la.jpg"
+  "image" : "/images/la.jpg",
+  "category" : "Machine Learning"
 }, {
   "date": new Date(2000, 5, 24, 11, 33, 30, 0),
   "description" : "Simple Tetris Game made using Javascript and p5.js",
@@ -13,7 +14,8 @@ var structure = [{
   "id": "tetris",
   "folder_name": "Tetris",
   "filename": "tetris.html",
-  "image" : "/images/tetris.jpg"
+  "image" : "/images/tetris.jpg",
+  "category" :"Classic Games"
 }, {
   "date": new Date(2001, 5, 24, 11, 33, 30, 0),
   "description" : "Simple Tetris Game made using Javascript and p5.js",
@@ -21,7 +23,8 @@ var structure = [{
   "id": "tetris",
   "folder_name": "Tetris",
   "filename": "tetris.html",
-  "image" : "/images/tetris.jpg"
+  "image" : "/images/tetris.jpg",
+  "category" :"Classic Games"
 }, {
   "date": new Date(2010, 5, 24, 11, 33, 30, 0),
   "description" : "Simple Tetris Game made using Javascript and p5.js",
@@ -29,7 +32,8 @@ var structure = [{
   "id": "tetris",
   "folder_name": "Tetris",
   "filename": "tetris.html",
-  "image" : "/images/tetris.jpg"
+  "image" : "/images/tetris.jpg",
+  "category" :"Classic Games"
 }];
 
 
@@ -37,7 +41,7 @@ var structure = [{
 structure.sort(function(a, b) {
   return new Date(b.date).getTime() - new Date(a.date).getTime()
 });
-
+/*
 function populate() {
   var dRow, dCol, dThumb, dImg, dButton,dP;
   for (var i = 0; i < structure.length; ++i) {
@@ -71,6 +75,40 @@ function populate() {
     dButton.className = "btn";
   }
 
+}*/
+
+function populate() {
+  var dRow, dCol1, dCol2, dThumb, dImg, dH, dP, dA;
+  for(var i = 0; i < structure.length; ++i){
+    dRow = document.createElement("DIV");
+    dRow.className = "row text-center";
+    document.getElementById("blog_frame").appendChild(dRow);
+
+    dCol1 = document.createElement("DIV");
+    dCol1.className = "col-sm-6";
+    dRow.appendChild(dCol1);
+
+    dThumb = document.createElement("DIV");
+    dCol1.appendChild(dThumb);
+    dThumb.className = "thumbnail";
+
+    dImg = document.createElement("IMG");
+    dImg.src = structure[i].image;
+    dThumb.appendChild(dImg);
+
+    dCol2 = document.createElement("DIV");
+    dCol2.className = "col-sm-6";
+    dRow.appendChild(dCol2);
+
+    dA = document.createElement("A");
+    dCol2.appendChild(dA);
+
+    dH = document.createElement("H1");
+    dA.href = "/blogs/" + structure[i].folder_name + "/" + structure[i].filename;
+    dH.appendChild(document.createTextNode(structure[i].name));
+    dA.appendChild(dH);
+
+  }
 }
 
 
