@@ -36,7 +36,7 @@ var structure = [{
   "category" :"Classic Games"
 }];
 
-
+var page = 0;
 
 structure.sort(function(a, b) {
   return new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -55,14 +55,18 @@ function filtCategory(ele){
 function createCallbackCat(t){
   return function(){
     filterVal = t;
-    populate(structure.filter(filtCategory));
+    page = 0;
+    structure = structure.filter(filtCategory);
+    populate(structure);
   }
 }
 
 function createCallbackDate(t){
   return function(){
     filterVal = t;
-    populate(structure.filter(filtDate));
+    page = 0;
+    structure = structure.filter(filtDate);
+    populate(structure);
   }
 }
 function populate(struct) {
@@ -75,7 +79,7 @@ function populate(struct) {
 
   var dRow, dCol1, dCol2, dThumb, dImg, dH, dP, dA;
   console.log(struct);
-  for(var i = 0; i < struct.length; ++i){
+  for(var i = page * 12; i < page*12 + 12 && i < struct.length; ++i){
     dRow = document.createElement("DIV");
     dRow.className = "row text-center";
     document.getElementById("blog_frame").appendChild(dRow);
@@ -126,6 +130,38 @@ function populate(struct) {
     dA.href = "/blogs/" + struct[i].folder_name + "/" + struct[i].filename;
     dH.appendChild(document.createTextNode(struct[i].name));
     dA.appendChild(dH);
+    $(dRow).hide();
+    $(dRow).fadeIn(2000);
+  }
+}
 
+
+function prevPage(){
+  if(page > 0){
+    $('#prev').removeClass('disabled'); 
+  }
+  if(((page+1) * 12 <= structure.length))
+    $('#next').removeClass('disabled'); 
+  if(page != 0){ page--;
+     populate(structure);
+  }
+  else {
+    $('#prev').addClass('disabled');
+  }
+ 
+}
+
+function nextPage(){
+  if(page > 0){
+    $('#prev').removeClass('disabled'); 
+  }
+  if(((page+1) * 12 <= structure.length))
+    $('#next').removeClass('disabled'); 
+  if((page+1) * 12 > structure.length){
+    $('#next').addClass('disabled');
+  }
+  else{
+    page++;
+     populate(structure);
   }
 }

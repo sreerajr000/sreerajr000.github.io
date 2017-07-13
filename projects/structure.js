@@ -33,14 +33,19 @@ var structure = [{
 }];
 
 
-
+var page = 0;
 structure.sort(function(a, b) {
   return new Date(b.date).getTime() - new Date(a.date).getTime()
 });
 
 function populate() {
+
+  var myNode = document.getElementById("project_frame");
+  while (myNode.firstChild) {
+      myNode.removeChild(myNode.firstChild);
+  }
   var dRow, dCol, dThumb, dImg, dButton,dP;
-  for (var i = 0; i < structure.length; ++i) {
+  for(var i = page * 12; i < page*12 + 12 && i < structure.length; ++i) {
     if ((i) % 3 == 0) {
       dRow = document.createElement("DIV");
       dRow.className = "row text-center";
@@ -69,6 +74,9 @@ function populate() {
     //dButton.onclick = function() { loadFrame(structure[i]); };
     $(dButton).on('click', function (e) { loadFrame(this.id); });
     dButton.className = "btn";
+
+    $(dRow).hide();
+    $(dRow).fadeIn(2000);
   }
 
 }
@@ -76,4 +84,35 @@ function populate() {
 
 function loadFrame(id){	
   window.location = "/projects/" + structure[id].folder_name + "/" + structure[id].filename;
+}
+
+
+function prevPage(){
+  if(page > 0){
+    $('#prev').removeClass('disabled'); 
+  }
+  if(((page+1) * 12 <= structure.length))
+    $('#next').removeClass('disabled'); 
+  if(page != 0){ page--;
+     populate(structure);
+  }
+  else {
+    $('#prev').addClass('disabled');
+  }
+ 
+}
+
+function nextPage(){
+  if(page > 0){
+    $('#prev').removeClass('disabled'); 
+  }
+  if(((page+1) * 12 <= structure.length))
+    $('#next').removeClass('disabled'); 
+  if((page+1) * 12 > structure.length){
+    $('#next').addClass('disabled');
+  }
+  else{
+    page++;
+     populate(structure);
+  }
 }

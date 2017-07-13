@@ -11,8 +11,20 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="/reviews/structure.js" type="text/javascript"></script>
   <script src="bg.js" type="text/javascript"></script>
+  <style type="text/css">
+  .row{
+    
+    border: solid 2px;
+    border-left: none;
+    border-right:  none;
+    border-color: rgba(255,255,255, 0.2);
+    margin : 15px;
+    padding-top: 15px;
+    border-radius: 25px;
+  }
+  </style>
 </head>
-<body onload="populate()">
+<body onload="populate(structure)">
 
 
 <script>
@@ -30,7 +42,10 @@
     <p class="text-center">I occassionally work on these things. . .<br> Remember nothing here is finished!</p>
 
     <div id="review_frame" class="frame" ></div>
-
+<ul class="pager">
+  <li><a id="prev" href="#" onclick="prevPage()">Previous</a></li>
+  <li><a id="next" href="#" onclick="nextPage()">Next</a></li>
+</ul> 
   </div>
 </div>
 
