@@ -41,77 +41,91 @@ var structure = [{
 structure.sort(function(a, b) {
   return new Date(b.date).getTime() - new Date(a.date).getTime()
 });
-/*
-function populate() {
-  var dRow, dCol, dThumb, dImg, dButton,dP;
-  for (var i = 0; i < structure.length; ++i) {
-    if ((i) % 3 == 0) {
-      dRow = document.createElement("DIV");
-      dRow.className = "row text-center";
-      document.getElementById("blog_frame").appendChild(dRow);
-    }
-    dCol = document.createElement("DIV");
-    dCol.className = "col-sm-4";
-    dRow.appendChild(dCol);
 
-    dThumb = document.createElement("DIV");
-    dCol.appendChild(dThumb);
-    dThumb.className = "thumbnail";
+var filterVal;
 
-    dImg = document.createElement("IMG");
-    dImg.src = structure[i].image;
-    dThumb.appendChild(dImg);
+function filtDate(ele) {
+  return (ele.date == filterVal);
+}
 
-    dP = document.createElement("P");
-    dP.appendChild(document.createTextNode(structure[i].description));
-    dThumb.appendChild(dP);
+function filtCategory(ele){
+  return (ele.category == filterVal);
+}
 
-    dButton = document.createElement("BUTTON");
-    dThumb.appendChild(dButton);
-    dButton.appendChild(document.createTextNode(structure[i].name));
-    dButton.id = i;
-    //dButton.onclick = function() { loadFrame(structure[i]); };
-    $(dButton).on('click', function (e) { loadFrame(this.id); });
-    dButton.className = "btn";
+function createCallbackCat(t){
+  return function(){
+    filterVal = t;
+    populate(structure.filter(filtCategory));
+  }
+}
+
+function createCallbackDate(t){
+  return function(){
+    filterVal = t;
+    populate(structure.filter(filtDate));
+  }
+}
+function populate(struct) {
+  //remove current elements if any
+  var myNode = document.getElementById("blog_frame");
+  while (myNode.firstChild) {
+      myNode.removeChild(myNode.firstChild);
   }
 
-}*/
 
-function populate() {
   var dRow, dCol1, dCol2, dThumb, dImg, dH, dP, dA;
-  for(var i = 0; i < structure.length; ++i){
+  console.log(struct);
+  for(var i = 0; i < struct.length; ++i){
     dRow = document.createElement("DIV");
     dRow.className = "row text-center";
     document.getElementById("blog_frame").appendChild(dRow);
 
     dCol1 = document.createElement("DIV");
-    dCol1.className = "col-sm-6";
+    dCol1.className = "col-sm-4";
     dRow.appendChild(dCol1);
+
+    dP = document.createElement("P");
+    dP.appendChild(document.createTextNode(struct[i].category));
+    dP.style.textAlign = "left";
+
+    dA = document.createElement("A");
+    dA.href = "#";
+    dCol1.appendChild(dA);
+    dA.appendChild(dP);
+    
+   $(dP).click(createCallbackCat(struct[i].category));
 
     dThumb = document.createElement("DIV");
     dCol1.appendChild(dThumb);
     dThumb.className = "thumbnail";
 
     dImg = document.createElement("IMG");
-    dImg.src = structure[i].image;
+    dImg.src = struct[i].image;
     dThumb.appendChild(dImg);
 
     dCol2 = document.createElement("DIV");
-    dCol2.className = "col-sm-6";
+    dCol2.className = "col-sm-8";
     dRow.appendChild(dCol2);
+
+
+    dA = document.createElement("A");
+    dA.href = "#";
+    dCol2.appendChild(dA);
+    dP = document.createElement("P");
+    dP.appendChild(document.createTextNode(struct[i].date.toDateString()));
+    dP.style.textAlign = "right";
+
+   $(dP).click(createCallbackDate(struct[i].date));
+
+    dA.appendChild(dP);
 
     dA = document.createElement("A");
     dCol2.appendChild(dA);
 
-    dH = document.createElement("H1");
-    dA.href = "/blogs/" + structure[i].folder_name + "/" + structure[i].filename;
-    dH.appendChild(document.createTextNode(structure[i].name));
+    dH = document.createElement("H3");
+    dA.href = "/blogs/" + struct[i].folder_name + "/" + struct[i].filename;
+    dH.appendChild(document.createTextNode(struct[i].name));
     dA.appendChild(dH);
 
   }
-}
-
-
-function loadFrame(id){	
-  window.location = "/blogs/" + structure[id].folder_name + "/" + structure[id].filename;
 }
