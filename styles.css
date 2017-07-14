@@ -99,10 +99,6 @@ h3, h4 {
 }
 
 
-#disqus_thread{
-    margin: auto;
-    width: 80%;
-}
 
 .frame{
     margin :auto;
@@ -181,4 +177,17 @@ a:hover {
 .disabled {
     cursor: not-allowed;
     pointer-events: all !important;
+}
+
+#disqus_thread {
+    margin: auto;
+    border-top: 2px solid #2d2d30;
+    border-bottom: 2px solid #2d2d30;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 25px;
+    padding-top: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #fff;
 }
