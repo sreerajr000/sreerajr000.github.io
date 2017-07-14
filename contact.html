@@ -10,21 +10,48 @@
   <script src="/libraries/p5.js" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="bg.js" type="text/javascript"></script>
+  <style type="text/css">
+  #contacts {
+    background-color: #2d2d30;
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+  .person {
+    width: 50%;
+    height: 50%;
+  }
+  
+  </style>
 </head>
 <body>
 
 
 <script>
     $(function(){
-        $("#header").load("header.html"); 
+        $("#header").load("/header.html"); 
+        $("#Footer").load("/footer.html"); 
       });
     </script>
     <div id="header"></div>
 
-
+<div id="contacts">
+<div class="row text-center">
+    <div class="col-sm-4">
+      <a href="https://facebook.com/sreerajr000"><img src="/images/facebook.png" class="img-circle person" alt="facebook"></a>
+      
+    </div>
+    <div class="col-sm-4">
+      <a href="https://www.hackerrank.com/______R"><img src="/images/hackerRankLogo.png"  class="img-circle person" alt="hackerrank"></a>
+      
+    </div>
+    <div class="col-sm-4">
+      <a href="https://www.linkedin.com/in/sreeraj-r-1b9b4542/"><img src="/images/linkedin.ico"  class="img-circle person" alt="linkedin"></a>
+    </div>
+  </div>
+</div>
 
  
-
+<div id="Footer"></div>
 
 <div id="disqus_thread" ></div>
 <script>
