@@ -1,5 +1,5 @@
 var structure = [{
-  "date": new Date(99, 5, 24, 11, 33, 30, 0),
+  "date": new Date(2017, 5, 24, 11, 33, 30, 0),
   "description" : "Image Classifier for a machine learning project",
   "name": "Image Classifier",
   "id": "img_classify",
@@ -7,23 +7,7 @@ var structure = [{
   "filename": "faces.html",
   "image" : "/images/la.jpg"
 }, {
-  "date": new Date(2000, 5, 24, 11, 33, 30, 0),
-  "description" : "Simple Tetris Game made using Javascript and p5.js",
-  "name": "Tetris",
-  "id": "tetris",
-  "folder_name": "Tetris",
-  "filename": "tetris.html",
-  "image" : "/images/tetris.jpg"
-}, {
-  "date": new Date(2001, 5, 24, 11, 33, 30, 0),
-  "description" : "Simple Tetris Game made using Javascript and p5.js",
-  "name": "Tetris",
-  "id": "tetris",
-  "folder_name": "Tetris",
-  "filename": "tetris.html",
-  "image" : "/images/tetris.jpg"
-}, {
-  "date": new Date(2010, 5, 24, 11, 33, 30, 0),
+  "date": new Date(2017, 7, 11, 11, 33, 30, 0),
   "description" : "Simple Tetris Game made using Javascript and p5.js",
   "name": "Tetris",
   "id": "tetris",
