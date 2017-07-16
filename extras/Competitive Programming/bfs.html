@@ -72,9 +72,12 @@ Breadth-first search colors each vertex white, gray, or black. White is not disc
 #define GRAY  1
 #define BLACK 2
 #define NIL -1
+
 using namespace std;
 
+//Vertex class
 class Vertex {
+public:
   int color;
   int d;
   int parent;
@@ -85,21 +88,72 @@ class Vertex {
   }
 };
 
+//Adjacency list
+vector&lt;list&lt;int&gt; &gt; adj;
+//Vertex array
+vector&lt;Vertex&gt; vertices;
+
+void BFS(int src) {
+  vertices[src].color = GRAY;
+  vertices[src].d = 0;
+  vertices[src].parent = NIL;
+
+  queue&lt;int&gt; Q;
+  Q.push(src);
+  while(!Q.empty()) {
+    int u = Q.front();
+    Q.pop();
+    cout &lt;&lt; u &lt;&lt; &quot; &quot;;   //print current item
+    for(auto v: adj[u]){
+      if(vertices[v].color == WHITE){
+        vertices[v].color = GRAY;
+        vertices[v].d = vertices[u].d + 1;
+        vertices[v].parent = u;
+        Q.push(v);
+      }
+    }
+    vertices[u].color = BLACK;
+  }
+}
 
 int main() {
-  vector&lt;list&gt; adj;
   int V, E;
   cin &gt;&gt; V &gt;&gt; E;
   adj.resize(V);
+  vertices.resize(V);
 
+  //read edges
   for(int i = 0; i &lt; E; i++){
     int u, v;
     cin &gt;&gt; u &gt;&gt; v;
     adj[u].push_back(v);
-    adj[v].push_back(u);
+    adj[v].push_back(u);  
   }
+
+  int src;
+  cin &gt;&gt; src;
+  BFS(src);
 }
 </pre>
+
+<div>
+INPUT
+<p style="padding:5px;border:1px solid;border-radius:8px;">
+4<br>
+6<br>
+0 1<br>
+0 2<br>
+1 2<br>
+2 0<br>
+2 3<br>
+3 3<br>
+2
+</p>
+OUTPUT
+<p style="padding:5px;border:1px solid;border-radius:8px;">
+2 0 1 3
+</p>
+</div>
 
 
 </div>
