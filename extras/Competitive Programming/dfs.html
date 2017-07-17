@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Depth First Search</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/libraries/p5.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <script src="/bg.js" type="text/javascript"></script>
+  <script src="/prettify/prettify.js"></script>
+  <link rel="stylesheet" type="text/css" href="/prettify/skins/desert.css">
+  <style type="text/css">
+    h1 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;
+      color: #ddd;
+  }
+  p{
+
+    font-family: "Lucida Console", Monaco, monospace;
+  }
+  li.L0, li.L1, li.L2, li.L3,
+  li.L5, li.L6, li.L7, li.L8 {
+    list-style-type: decimal !important;
+  }
+
+  </style>
+</head>
+
+<body >
+  <script>
+  window.onload = (function(){ prettyPrint(); });
+    $(function(){
+        $("#header").load("/header.html"); 
+        $("#Footer").load("/footer.html");
+        //$('#codecontent').load("bfs.cpp");
+      });
+    </script>
+<div id="header"></div>
+
+
+<div id="content" style="margin:auto;padding-top:80px;background-color:#2d2d30;color:#ddd;padding-left:10%;padding-right:10%;margin-bottom:0; padding-bottom:10px;">
+<h1 class="text-center" >Depth First Search</h1>
+
+<div class = "well text-center">
+<p style="color:#444">
+Class : <strong>Search Algorithm</strong> <br>
+Data structure : <strong>Graph </strong><br>
+Worst-case Performance : <strong>O(|V| + |E|)</strong><br>
+Worst-case Space Complexity : <strong>O(|V|)</strong>
+</p>
+</div>
+<p> Depth first search is an algorithm for traversing a graph data structure. Depth-first search explores edges out of the most recently discovered vertex v that still has unexplored edges leaving it. Once all of v’s edges have been explored, the search “backtracks” to explore edges leaving the vertex from which v was discovered. This process continues until we have discovered all the vertices that are reachable from the original source vertex.
+</p>
+<p>
+ Each vertex is initially white, is grayed when it is discovered in the search, and is blackened when it is finished. Each vertex v has two timestamps: the first timestamp v.d records when v is first discovered (and grayed), and the second timestamp v.f records when the search finishes examining v’s adjacency  list  (and  blackens v). 
+
+</p>
+
+<img src="/images/dfs.jpg" style="margin:auto;display:block;border-radius:6px;width:350px;">
+<p class="text-center">PseudoCode for DFS</p>
+<br>
+<p class="text-center">C++ Code</p>
+
+
+<pre id="codecontent" class="prettyprint linenums" style="border-radius:8px">
+#include &lt;bits/stdc++.h&gt;
+
+
+#define WHITE 0
+#define GRAY  1
+#define BLACK 2
+#define NIL -1
+
+using namespace std;
+
+class Vertex {
+public:
+  int color;
+  int d,f;
+  int parent;
+  Vertex() {
+    color = WHITE;
+    parent = NIL;
+  }
+};
+
+
+
+vector&lt;list&lt;int&gt; &gt; adj;
+vector&lt;Vertex&gt; vertices;
+int timestamp = 0;
+
+void DFS_visit(int src) {
+  timestamp++;
+  vertices[src].d = timestamp;
+  vertices[src].color = GRAY;
+  cout &lt;&lt; src &lt;&lt; &quot; &quot;;
+  for(auto v: adj[src]) {
+    if(vertices[v].color == WHITE){
+      vertices[v].parent = src;
+      DFS_visit(v);
+    }
+  }
+  vertices[src].color = BLACK;
+  timestamp++;
+  vertices[src].f = timestamp;
+}
+
+
+void DFS(){
+  for(int i = 0; i &lt; vertices.size(); i++){
+    if(vertices[i].color == WHITE)
+      DFS_visit(i);
+  }
+}
+
+
+int main() {
+  int V, E;
+  cin &gt;&gt; V &gt;&gt; E;
+  adj.resize(V);
+  vertices.resize(V);
+
+  for(int i = 0; i &lt; E; i++){
+    int u, v;
+    cin &gt;&gt; u &gt;&gt; v;
+    adj[u].push_back(v);
+    adj[v].push_back(u);
+  }
+
+  DFS();
+}
+</pre>
+
+<div>
+INPUT
+<p style="padding:5px;border:1px solid;border-radius:8px;">
+4<br>
+6<br>
+0 1<br>
+0 2<br>
+1 2<br>
+2 0<br>
+2 3<br>
+3 3
+</p>
+OUTPUT
+<p style="padding:5px;border:1px solid;border-radius:8px;">
+0 1 2 3 
+</p>
+</div>
+
+
+</div>
+<div id="Footer"></div>
+
+<div id="disqus_thread" ></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = window.location;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "main_extra_dfs"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sreerajr000.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+<script id="dsq-count-scr" src="//sreerajr000.disqus.com/count.js" async></script>
+</body>
+</html>
+
+</body>
