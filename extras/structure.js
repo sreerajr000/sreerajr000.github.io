@@ -6,6 +6,22 @@ var structure = [{
   "folder_name": "Competitive Programming",
   "filename": "bfs.html",
   "image" : "/images/bfs.jpg"
+},{
+  "date": new Date(2017, 7, 17, 11, 33, 30, 0),
+  "description" : "Depth First Search Algorithm in a graph",
+  "name": "DFS",
+  "id": "dfs",
+  "folder_name": "Competitive Programming",
+  "filename": "dfs.html",
+  "image" : "/images/dfs.jpg"
+},{
+  "date": new Date(2017, 7, 18, 11, 33, 30, 0),
+  "description" : "Dijkstra's Algorithm for finding shortest path in a graph",
+  "name": "Dijkstra",
+  "id": "dijkstra",
+  "folder_name": "Competitive Programming",
+  "filename": "dijkstra.html",
+  "image" : "/images/dijkstra.jpg"
 }];
 
 var page = 0;
