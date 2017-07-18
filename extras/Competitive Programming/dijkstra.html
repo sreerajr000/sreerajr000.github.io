@@ -67,7 +67,7 @@ we can use the BFS algorithm. Dijkstra’s algorithm is a greedy algorithm.
 <pre id="codecontent" class="prettyprint linenums" style="border-radius:8px">
 #include &lt;bits/stdc++.h&gt;
 
-#define INF 2000000009
+#define INF 200009
 
 using namespace std;
 
@@ -91,7 +91,6 @@ void dijkstra(int s){
     if (d == dist[u]){ // This check is important! We want to process vertex u only once but we can
     // actually enqueue u several times in priority_queue... Fortunately, other occurrences of u
     // in priority_queue will have greater distances and can be ignored (the overhead is small)
-
       for(auto it : adj[u]) { // all outgoing edges from u
         int v = it.first, weight_u_v = it.second;
         if (dist[u] + weight_u_v &lt; dist[v]) { // if can relax
@@ -102,7 +101,8 @@ void dijkstra(int s){
 
     }
   }                          // regardless whether it is already in pq or not
-
+  for(auto x: dist)
+    cout &lt;&lt; x &lt;&lt; &quot; &quot;;
 }
 
 
@@ -141,7 +141,7 @@ INPUT
 </p>
 OUTPUT
 <p style="padding:5px;border:1px solid;border-radius:8px;">
-|
+2 0 5 7 6
 </p>
 </div>
 
