@@ -7,6 +7,46 @@ var structure = [{
   "filename": "theperfectvillain.html",
   "image" : "/images/la.jpg",
   "category" : "Character Review"
+},
+{
+  "date": new Date(2017, 3, 26, 11, 33, 30, 0),
+  "description" : "Daily Blog #1",
+  "name": "Daily Blog #1",
+  "id": "daily_blog_1",
+  "folder_name": "dailyblogs",
+  "filename": "1.html",
+  "image" : "/images/la.jpg",
+  "category" : "Daily Blogs"
+},
+{
+  "date": new Date(2017, 3, 27, 11, 33, 30, 0),
+  "description" : "Daily Blog #2",
+  "name": "Daily Blog #2",
+  "id": "daily_blog_2",
+  "folder_name": "dailyblogs",
+  "filename": "2.html",
+  "image" : "/images/la.jpg",
+  "category" : "Daily Blogs"
+},
+{
+  "date": new Date(2017, 3, 28, 11, 33, 30, 0),
+  "description" : "Daily Blog #3",
+  "name": "Daily Blog #3",
+  "id": "daily_blog_3",
+  "folder_name": "dailyblogs",
+  "filename": "3.html",
+  "image" : "/images/la.jpg",
+  "category" : "Daily Blogs"
+},
+{
+  "date": new Date(2017, 3, 29, 11, 33, 30, 0),
+  "description" : "Daily Blog #4",
+  "name": "Daily Blog #4",
+  "id": "daily_blog_4",
+  "folder_name": "dailyblogs",
+  "filename": "4.html",
+  "image" : "/images/la.jpg",
+  "category" : "Daily Blogs"
 }];
 
 var page = 0;
@@ -69,7 +109,7 @@ function populate(struct) {
     dA.href = "#";
     dCol1.appendChild(dA);
     dA.appendChild(dP);
-    
+
    $(dP).click(createCallbackCat(struct[i].category));
 
     dThumb = document.createElement("DIV");
@@ -111,25 +151,25 @@ function populate(struct) {
 
 function prevPage(){
   if(page > 0){
-    $('#prev').removeClass('disabled'); 
+    $('#prev').removeClass('disabled');
   }
   if(((page+1) * 12 <= structure.length))
-    $('#next').removeClass('disabled'); 
+    $('#next').removeClass('disabled');
   if(page != 0){ page--;
      populate(structure);
   }
   else {
     $('#prev').addClass('disabled');
   }
- 
+
 }
 
 function nextPage(){
   if(page > 0){
-    $('#prev').removeClass('disabled'); 
+    $('#prev').removeClass('disabled');
   }
   if(((page+1) * 12 <= structure.length))
-    $('#next').removeClass('disabled'); 
+    $('#next').removeClass('disabled');
   if((page+1) * 12 > structure.length){
     $('#next').addClass('disabled');
   }
