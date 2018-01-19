@@ -412,33 +412,34 @@ See examples of changing the permissions of files using chmod.<br>
 
        <br>
        <strong>SuperUser Commands</strong><br><br>
-       <strong>1. wget</strong><br>
-       A utility for non-interactive download of files from the Web.  It supports HTTP, HTTPS, and FTP protocols, as well as
-       retrieval through HTTP proxies.<br>
-       <strong>$ wget https://sreerajr000.github.io/abcd.zip</strong><br><br>
+       <strong>1. apt</strong><br>
+       apt provides a high-level commandline interface for the package management system. It is intended as an end user interface and enables some
+       options better suited for interactive usage by default compared to more specialized APT tools like apt-get.<br>
+       <strong># apt-get install python</strong><br><br>
 
-       <strong>2. ping</strong><br>
-       Ping a remote host by sending only 5 packets.<br>
-       <strong>$ ping -c 5 gmail.com</strong><br><br>
+       <strong>2. fsck</strong><br>
+       fsck  is  used  to check and optionally repair one or more Linux filesystems.  filesys can be a device name (e.g.  /dev/hdc1, /dev/sdb2), a
+       mount point (e.g.  /, /usr, /home), or an ext2 label or UUID specifier<br>
+       <strong># fsck -nf /dev/sda1 -y</strong><br><br>
 
 
-       <strong>3. less</strong><br>
-       Less does not have to read the entire input file before starting, so
-       with large input files it starts up faster than text editors like vi<br>
-       <strong>$ less sys.log</strong><br><br>
+       <strong>3. badblocks</strong><br>
+        badblocks is used to search for bad blocks on a device (usually a disk partition).<br>
+       <strong># badblocks /dev/sda1</strong><br><br>
 
-       <strong>4. locate</strong><br>
-       Using locate command you can quickly search for the location of a specific file (or group of files). Locate command uses the database created by updatedb.<br>
-       <strong>$ locate crontab</strong><br><br>
+       <strong>4. parted</strong><br>
+      parted  is  a program to manipulate disk partitions.  It supports multiple partition table formats, including MS-DOS and GPT.  It is useful
+       for creating space for new operating systems, reorganising disk usage, and copying data to new hard disks.<br>
+       <strong># parted /dev/sda</strong><br><br>
 
-       <strong>5. uname</strong><br>
-       Uname command displays important information about the system such as — Kernel name, Host name, Kernel release number,
-Processor type, etc.<br>
-       <strong>$ uname -a</strong><br><br>
+       <strong>5. umount</strong><br>
+       umount - unmount file systems<br>
+       <strong># umount /mnt</strong><br><br>
 
-       <strong>6. passwd</strong><br>
-       Change your password from command line using passwd. This will prompt for the old password followed by the new password.<br>
-       <strong>$ passwd USER</strong><br><br>
+       <strong>6. kbdrate</strong><br>
+       kbdrate  is used to change the keyboard repeat rate and delay time.  The delay is the amount of time that a key must be depressed before it
+       will start to repeat.<br>
+       <strong>$ kbdrate</strong><br><br>
 
        <strong>7. chown</strong><br>
        chown command is used to change the owner and group of a file.<br>
