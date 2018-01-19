@@ -54,7 +54,7 @@
         List all running daemon processes in a Linux System</a>
       </h4>
     </div>
-    <div id="collapse1" class="panel-collapse collapse in">
+    <div id="collapse1" class="panel-collapse collapse">
       <div class="panel-body">
       <p style="font-family: Courier New, Courier, monospace">
           We could find running daemons by searching for processes which run without a controlling terminal attached to them. This can be achieved
@@ -338,10 +338,149 @@ There are no guaranteed ways to get all daemons. You can filter user created dae
       </h4>
     </div>
     <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.</div>
+      <div class="panel-body">
+      
+      <p  style="font-family: Courier New, Courier, monospace">
+      <strong>User Commands</strong> <br>
+      <br>
+      <strong>1. wget</strong><br>
+       A utility for non-interactive download of files from the Web.  It supports HTTP, HTTPS, and FTP protocols, as well as
+       retrieval through HTTP proxies.<br>
+       <strong>$ wget https://sreerajr000.github.io/abcd.zip</strong><br><br>
+
+       <strong>2. ping</strong><br>
+       Ping a remote host by sending only 5 packets.<br>
+       <strong>$ ping -c 5 gmail.com</strong><br><br>
+
+
+       <strong>3. less</strong><br>
+       Less does not have to read the entire input file before starting, so
+       with large input files it starts up faster than text editors like vi<br>
+       <strong>$ less sys.log</strong><br><br>
+
+       <strong>4. locate</strong><br>
+       Using locate command you can quickly search for the location of a specific file (or group of files). Locate command uses the database created by updatedb.<br>
+       <strong>$ locate crontab</strong><br><br>
+
+       <strong>5. uname</strong><br>
+       Uname command displays important information about the system such as — Kernel name, Host name, Kernel release number,
+Processor type, etc.<br>
+       <strong>$ uname -a</strong><br><br>
+
+       <strong>6. passwd</strong><br>
+       Change your password from command line using passwd. This will prompt for the old password followed by the new password.<br>
+       <strong>$ passwd USER</strong><br><br>
+
+       <strong>7. chown</strong><br>
+       chown command is used to change the owner and group of a file.<br>
+       <strong>$ chown oracle:dba dbora.sh</strong><br><br>
+
+       <strong>8. df</strong><br>
+       Displays the file system disk space usage. By default df -k displays output in bytes.<br>
+       <strong>$ df -k</strong><br><br>
+
+       <strong>9. free</strong><br>
+       This command is used to display the free, used, swap memory available in the system.<br>
+       <strong>$ free</strong><br><br>
+
+       <strong>10. service</strong><br>
+       Service command is used to run the system V init scripts. i.e Instead of calling the scripts located in the /etc/init.d/ directory with their full path, you can use the service command.
+
+Check the status of a service:<br>
+       <strong>$ service ssh status</strong><br><br>
+
+       <strong>11. sort</strong><br>
+       Sort a file in ascending order<br>
+       <strong>$ sort abc.txt</strong><br><br>
+
+       <strong>12. touch</strong><br>
+       The touch command - a.k.a. the make file command - allows users to make files using the Linux CLI. Just as the mkdir command makes directories, the touch command makes files. Just as you would make a .doc or a .txt using a PC desktop, the touch command makes empty files. An example of the touch command:<br>
+       <strong>$ touch abc.txt</strong><br><br>
+
+      <strong>13. clear</strong><br>
+       The clear command does exactly what it says. When your Linux CLI gets all mucked up with various readouts and information, the clear command clears the screen and wipes the board clean. Using the clear command will take the user back to the start prompt of whatever directory you are currently operating in. To use the clear command simply type clear.<br>
+       <strong>$ clear</strong><br><br>
+
+       <strong>14. chmod</strong><br>
+       Chmod changes the access mode (permissions) of one or more files. Only the owner of a file or a privileged user may change the access mode.
+See examples of changing the permissions of files using chmod.<br>
+       <strong>$ chmod +x run.sh</strong><br><br>
+
+       <strong>15. netstat</strong><br>
+       Netstat provides information and statistics about protocols in use and current TCP/IP network connections. It is a helpful forensic tool in figuring out which processes and programs are active on a computer and are involved in network communications.<br>
+       <strong>$ netstat</strong><br><br>
+
+       <br>
+       <strong>SuperUser Commands</strong><br><br>
+       <strong>1. wget</strong><br>
+       A utility for non-interactive download of files from the Web.  It supports HTTP, HTTPS, and FTP protocols, as well as
+       retrieval through HTTP proxies.<br>
+       <strong>$ wget https://sreerajr000.github.io/abcd.zip</strong><br><br>
+
+       <strong>2. ping</strong><br>
+       Ping a remote host by sending only 5 packets.<br>
+       <strong>$ ping -c 5 gmail.com</strong><br><br>
+
+
+       <strong>3. less</strong><br>
+       Less does not have to read the entire input file before starting, so
+       with large input files it starts up faster than text editors like vi<br>
+       <strong>$ less sys.log</strong><br><br>
+
+       <strong>4. locate</strong><br>
+       Using locate command you can quickly search for the location of a specific file (or group of files). Locate command uses the database created by updatedb.<br>
+       <strong>$ locate crontab</strong><br><br>
+
+       <strong>5. uname</strong><br>
+       Uname command displays important information about the system such as — Kernel name, Host name, Kernel release number,
+Processor type, etc.<br>
+       <strong>$ uname -a</strong><br><br>
+
+       <strong>6. passwd</strong><br>
+       Change your password from command line using passwd. This will prompt for the old password followed by the new password.<br>
+       <strong>$ passwd USER</strong><br><br>
+
+       <strong>7. chown</strong><br>
+       chown command is used to change the owner and group of a file.<br>
+       <strong>$ chown oracle:dba dbora.sh</strong><br><br>
+
+       <strong>8. df</strong><br>
+       Displays the file system disk space usage. By default df -k displays output in bytes.<br>
+       <strong>$ df -k</strong><br><br>
+
+       <strong>9. free</strong><br>
+       This command is used to display the free, used, swap memory available in the system.<br>
+       <strong>$ free</strong><br><br>
+
+       <strong>10. service</strong><br>
+       Service command is used to run the system V init scripts. i.e Instead of calling the scripts located in the /etc/init.d/ directory with their full path, you can use the service command.
+
+Check the status of a service:<br>
+       <strong>$ service ssh status</strong><br><br>
+
+       <strong>11. sort</strong><br>
+       Sort a file in ascending order<br>
+       <strong>$ sort abc.txt</strong><br><br>
+
+       <strong>12. touch</strong><br>
+       The touch command - a.k.a. the make file command - allows users to make files using the Linux CLI. Just as the mkdir command makes directories, the touch command makes files. Just as you would make a .doc or a .txt using a PC desktop, the touch command makes empty files. An example of the touch command:<br>
+       <strong>$ touch abc.txt</strong><br><br>
+
+      <strong>13. clear</strong><br>
+       The clear command does exactly what it says. When your Linux CLI gets all mucked up with various readouts and information, the clear command clears the screen and wipes the board clean. Using the clear command will take the user back to the start prompt of whatever directory you are currently operating in. To use the clear command simply type clear.<br>
+       <strong>$ clear</strong><br><br>
+
+       <strong>14. chmod</strong><br>
+       Chmod changes the access mode (permissions) of one or more files. Only the owner of a file or a privileged user may change the access mode.
+See examples of changing the permissions of files using chmod.<br>
+       <strong>$ chmod +x run.sh</strong><br><br>
+
+       <strong>15. netstat</strong><br>
+       Netstat provides information and statistics about protocols in use and current TCP/IP network connections. It is a helpful forensic tool in figuring out which processes and programs are active on a computer and are involved in network communications.<br>
+       <strong>$ netstat</strong>
+      <br><br>
+      </p>
+      </div>
     </div>
   </div>
   <div class="panel panel-default">
