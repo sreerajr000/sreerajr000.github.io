@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Device Drivers Lab Work</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/libraries/p5.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <script src="/bg.js" type="text/javascript"></script>
+  <script src="/blogs/structure.js" type="text/javascript"></script>
+  <style type="text/css">
+    h1 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;
+      color: #ddd;
+      font-family: Impact, Charcoal, sans-serif;
+  }
+  h2, h3 {
+      font-family: Impact, Charcoal, sans-serif;
+      color: #999;
+  }
+  p{
+    font-family: "Times New Roman", Georgia, Serif;
+  }
+  h4{
+    letter-spacing: 2px;
+  }
+  </style>
+</head>
+
+<body>
+<script>
+    $(function(){
+        $("#header").load("/header.html");
+        $("#Footer").load("/footer.html");
+      });
+    </script>
+    <div id="header"></div>
+
+
+<div id="content" style="margin:auto;padding-top:80px;background-color:#2d2d30;">
+  <h1 class="text-center" >Device Drivers : LAB</h1>
+  <h2 class="text-center">Sreeraj R</h2>
+  <h3 class="text-center">CED14I046</h3>
+  <p style="color:#ddd;width:75%;margin:auto;line-height: 200%;font-size: 1.2em;letter-spacing:2px;">
+  <div style="width:75%;margin:auto;" class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        List all running daemon processes in a Linux System</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">
+      <p style="font-family: Courier New, Courier, monospace">
+          We could find running daemons by searching for processes which run without a controlling terminal attached to them. This can be achieved
+          with ps command.
+          <br>
+          <br>
+          <strong>$ ps -eo &#x27;tty,pid,comm&#x27; | grep ^?</strong>
+          <br>
+          <br>
+          Since some of the GUI programs like Chromium are not attached to a terminal they might also appear in the output
+          <br>
+          <br>
+          <strong>
+          ?            1 systemd
+?            2 kthreadd<br>
+?            4 kworker/0:0H<br>
+?            6 ksoftirqd/0<br>
+?            7 rcu_sched<br>
+?            8 rcu_bh<br>
+?            9 migration/0<br>
+?           10 lru-add-drain<br>
+?           11 watchdog/0<br>
+?           12 cpuhp/0<br>
+?           13 cpuhp/1<br>
+?           14 watchdog/1<br>
+?           15 migration/1<br>
+?           16 ksoftirqd/1<br>
+?           18 kworker/1:0H<br>
+?           19 cpuhp/2<br>
+?           20 watchdog/2<br>
+?           21 migration/2<br>
+?           22 ksoftirqd/2<br>
+?           24 kworker/2:0H<br>
+?           25 cpuhp/3<br>
+?           26 watchdog/3<br>
+?           27 migration/3<br>
+?           28 ksoftirqd/3<br>
+?           30 kworker/3:0H<br>
+?           31 kdevtmpfs<br>
+?           32 netns<br>
+?           33 khungtaskd<br>
+?           34 oom_reaper<br>
+?           35 writeback<br>
+?           36 kcompactd0<br>
+?           37 ksmd<br>
+?           38 khugepaged<br>
+?           39 crypto<br>
+?           40 kintegrityd<br>
+?           41 bioset<br>
+?           42 kblockd<br>
+?           47 ata_sff<br>
+?           48 md<br>
+?           49 devfreq_wq<br>
+?           50 watchdogd<br>
+?           53 kauditd<br>
+?           54 kswapd0<br>
+?           55 vmstat<br>
+?           56 bioset<br>
+?           57 ecryptfs-kthrea<br>
+?           97 kthrotld<br>
+?           98 acpi_thermal_pm<br>
+?          100 bioset<br>
+?          101 bioset<br>
+?          102 bioset<br>
+?          103 bioset<br>
+?          104 bioset<br>
+?          105 bioset<br>
+?          106 bioset<br>
+?          107 bioset<br>
+?          111 ipv6_addrconf<br>
+?          133 charger_manager<br>
+?          173 scsi_eh_0<br>
+?          174 scsi_tmf_0<br>
+?          175 nvidia-modeset<br>
+?          176 scsi_eh_1<br>
+?          177 scsi_tmf_1<br>
+?          178 scsi_eh_2<br>
+?          179 scsi_tmf_2<br>
+?          180 scsi_eh_3<br>
+?          181 scsi_tmf_3<br>
+?          183 kworker/u8:4<br>
+?          184 i915/signal:0<br>
+?          185 i915/signal:1<br>
+?          186 i915/signal:2<br>
+?          187 i915/signal:4<br>
+?          190 bioset<br>
+?          191 bioset<br>
+?          193 kworker/2:1H<br>
+?          194 kworker/0:1H<br>
+?          196 kworker/1:1H<br>
+?          219 jbd2/sda1-8<br>
+?          220 ext4-rsv-conver<br>
+?          247 kworker/3:1H<br>
+?          259 systemd-journal<br>
+?          282 systemd-udevd<br>
+?          552 irq/39-DLL0652:<br>
+?          557 irq/44-mei_me<br>
+?          581 cfg80211<br>
+?          687 systemd-timesyn<br>
+?          704 UVM global queu<br>
+?          705 UVM Tools Event<br>
+?          913 avahi-daemon<br>
+?          915 rsyslogd<br>
+?          918 acpid<br>
+?          922 dbus-daemon<br>
+?          934 avahi-daemon<br>
+?          938 systemd-logind<br>
+?          942 smartd<br>
+?          944 ModemManager<br>
+?          945 thermald<br>
+?          950 accounts-daemon<br>
+?          963 cron<br>
+?          967 NetworkManager<br>
+?          969 cgmanager<br>
+?          973 snapd<br>
+?         1025 irqbalance<br>
+?         1041 polkitd<br>
+?         1050 lightdm<br>
+?         1073 libvirtd<br>
+?         1089 ath9k-hwrng<br>
+?         1106 postgres<br>
+?         1107 wpa_supplicant<br>
+?         1118 irq/47-nvidia<br>
+?         1119 nvidia<br>
+?         1120 postgres<br>
+?         1121 postgres<br>
+?         1122 postgres<br>
+?         1123 postgres<br>
+?         1124 postgres<br>
+?         1127 dnsmasq<br>
+?         1406 dnsmasq<br>
+?         1424 lightdm<br>
+?         1465 systemd<br>
+?         1466 (sd-pam)<br>
+?         1495 upstart<br>
+?         1599 upstart-udev-br<br>
+?         1610 dbus-daemon<br>
+?         1622 window-stack-br<br>
+?         1638 ibus-daemon<br>
+?         1646 upstart-dbus-br<br>
+?         1648 upstart-dbus-br<br>
+?         1653 upstart-file-br<br>
+?         1657 gvfsd<br>
+?         1658 gnome-keyring-d<br>
+?         1674 gvfsd-fuse<br>
+?         1676 ibus-dconf<br>
+?         1677 ibus-ui-gtk3<br>
+?         1679 ibus-x11<br>
+?         1705 at-spi-bus-laun<br>
+?         1712 dbus-daemon<br>
+?         1714 at-spi2-registr<br>
+?         1717 gpg-agent<br>
+?         1725 bamfdaemon<br>
+?         1734 ibus-engine-sim<br>
+?         1784 hud-service<br>
+?         1786 unity-settings-<br>
+?         1793 gnome-session-b<br>
+?         1798 unity-panel-ser<br>
+?         1812 whoopsie<br>
+?         1894 iprt-VBoxWQueue<br>
+?         1898 iprt-VBoxTscThr<br>
+?         1919 dconf-service<br>
+?         1933 upowerd<br>
+?         1935 indicator-messa<br>
+?         1936 indicator-bluet<br>
+?         1937 indicator-power<br>
+?         1938 indicator-datet<br>
+?         1939 indicator-keybo<br>
+?         1940 indicator-sound<br>
+?         1941 indicator-print<br>
+?         1942 indicator-sessi<br>
+?         1943 indicator-appli<br>
+?         1951 dnsmasq<br>
+?         1952 dnsmasq<br>
+?         1968 bluetoothd<br>
+?         2028 compiz<br>
+?         2041 syndaemon<br>
+?         2043 colord<br>
+?         2046 pulseaudio<br>
+?         2049 rtkit-daemon<br>
+?         2053 evolution-sourc<br>
+?         2080 nm-applet<br>
+?         2082 unity-fallback-<br>
+?         2083 polkit-gnome-au<br>
+?         2085 nautilus<br>
+?         2088 gnome-software<br>
+?         2099 gvfs-udisks2-vo<br>
+?         2111 teamviewerd<br>
+?         2135 evolution-calen<br>
+?         2136 kworker/u9:0<br>
+?         2138 hci0<br>
+?         2139 hci0<br>
+?         2141 kworker/u9:1<br>
+?         2163 krfcommd<br>
+?         2169 udisksd<br>
+?         2238 fwupd<br>
+?         2247 gvfs-goa-volume<br>
+?         2252 gvfs-afc-volume<br>
+?         2259 gvfs-gphoto2-vo<br>
+?         2273 evolution-calen<br>
+?         2284 gvfs-mtp-volume<br>
+?         2291 evolution-addre<br>
+?         2293 evolution-calen<br>
+?         2301 evolution-addre<br>
+?         2331 gvfsd-trash<br>
+?         2851 gvfsd-metadata<br>
+?         3002 chromium-browse<br>
+?         3013 chromium-browse<br>
+?         3015 chromium-browse<br>
+?         3071 chromium-browse<br>
+?         3074 chromium-browse<br>
+?         3098 zeitgeist-datah<br>
+?         3105 sh<br>
+?         3109 zeitgeist-daemo<br>
+?         3116 zeitgeist-fts<br>
+?         3153 gnome-terminal-<br>
+?         3251 chromium-browse<br>
+?         3377 chromium-browse<br>
+?         3461 chromium-browse<br>
+?         3482 chromium-browse<br>
+?         3514 chromium-browse<br>
+?         3539 chromium-browse<br>
+?         3563 update-notifier<br>
+?         3594 apt.systemd.dai<br>
+?         3599 apt.systemd.dai<br>
+?         3632 unattended-upgr<br>
+?         3655 notify-osd<br>
+?         3712 deja-dup-monito<br>
+?         3798 chromium-browse<br>
+?         3961 cups-browsed<br>
+?         3965 kworker/0:0<br>
+?         4485 chromium-browse<br>
+?         4514 kworker/u8:1<br>
+?         4516 kworker/3:0<br>
+?         4660 gvfsd-network<br>
+?         4691 gvfsd-dnssd<br>
+?         4808 chromium-browse<br>
+?         4916 sublime_text<br>
+?         4929 plugin_host<br>
+?         4933 dpkg-deb &#x3C;defunct&#x3E;<br>
+?         4938 kworker/2:1<br>
+?         5215 chromium-browse<br>
+?         5264 kworker/2:0<br>
+?         7308 kworker/1:0<br>
+?         9217 kworker/0:2<br>
+?        10250 grub-mount<br>
+?        11527 kworker/3:2<br>
+?        11558 chromium-browse<br>
+?        11758 kworker/1:1<br>
+?        12950 kworker/u8:2<br>
+?        14350 bioset<br>
+?        14351 xfsalloc<br>
+?        14352 xfs_mru_cache<br>
+?        14355 jfsIO<br>
+?        14356 jfsCommit<br>
+?        14357 jfsCommit<br>
+?        14358 jfsCommit<br>
+?        14359 jfsCommit<br>
+?        14360 jfsSync<br>
+?        14402 bioset<br>
+?        25004 unattended-upgr<br>
+?        27996 kworker/1:2<br>
+?        28146 kworker/u8:0<br>
+?        29109 chromium-browse
+</strong>
+<br><br>
+There are no guaranteed ways to get all daemons. You can filter user created daemons and system created daemons using the properties of deamons as specified above.
+<br>
+<br>
+
+</p>
+<img src="daemon_1.jpg" style="margin: auto;display: block;" width="600">
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        SuperUser Commands and User Commands</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Rest of the assignments</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">Coming Soon...</div>
+    </div>
+  </div>
+</div>
+ <br></br>
+  </p>
+</div>
+<div id="Footer"></div>
+
+<div id="disqus_thread" ></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = window.location;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "main_lab"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sreerajr000.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<script id="dsq-count-scr" src="//sreerajr000.disqus.com/count.js" async></script>
+</body>
+</html>
+
+</body>
