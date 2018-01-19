@@ -462,24 +462,25 @@ Check the status of a service:<br>
        <strong>11. adduser</strong><br>
        adduser, addgroup - add a user or group to the system
 <br>
-       <strong>$ adduser [OPTIONS]</strong><br><br>
+       <strong># adduser [OPTIONS]</strong><br><br>
 
        <strong>12. runuser</strong><br>
        runuser  allows  to run commands with a substitute user and group ID.<br>
-       <strong>$ runuser [OPTIONS]</strong><br><br>
+       <strong># runuser [OPTIONS]</strong><br><br>
 
-      <strong>13. clear</strong><br>
-       The clear command does exactly what it says. When your Linux CLI gets all mucked up with various readouts and information, the clear command clears the screen and wipes the board clean. Using the clear command will take the user back to the start prompt of whatever directory you are currently operating in. To use the clear command simply type clear.<br>
-       <strong>$ clear</strong><br><br>
+      <strong>13. rmmod</strong><br>
+       rmmod is a trivial program to remove a module (when module unloading support is provided) from the kernel. <br>
+       <strong># rmmod mod_name</strong><br><br>
 
-       <strong>14. chmod</strong><br>
-       Chmod changes the access mode (permissions) of one or more files. Only the owner of a file or a privileged user may change the access mode.
-See examples of changing the permissions of files using chmod.<br>
-       <strong>$ chmod +x run.sh</strong><br><br>
+       <strong>14. insmod</strong><br>
+       insmod is a trivial program to insert a module into the kernel. Most users will want to use modprobe(8) instead, which is more clever and
+       can handle module dependencies.<br>
+       <strong>#insmod mod_name</strong><br><br>
 
-       <strong>15. netstat</strong><br>
-       Netstat provides information and statistics about protocols in use and current TCP/IP network connections. It is a helpful forensic tool in figuring out which processes and programs are active on a computer and are involved in network communications.<br>
-       <strong>$ netstat</strong>
+       <strong>15. sudo mkdir/cp/rm/ ... on any directory owned by root</strong><br>
+       Any directory owned by root can be modified or deleted using super user privileges
+       <br>
+       <strong>$ sudo command</strong>
       <br><br>
       </p>
       </div>
